@@ -1,0 +1,10 @@
+{"hosting": {
+    "site": "tech-tonic2025",
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
