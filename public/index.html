@@ -330,7 +330,7 @@
         }
 
         .hero-title {
-            font-size: clamp(3.5rem, 10vw, 7rem);
+            font-size: clamp(3rem, 8vw, 6rem);
             font-weight: 900;
             margin-bottom: 1.5rem;
             line-height: 1.1;
@@ -481,6 +481,9 @@
             gap: 1rem;
             animation: fadeInUp 0.8s ease-out 1s both;
         }
+
+
+        
 
         /* Buttons */
         .btn {
@@ -1151,25 +1154,31 @@
         @media (max-width: 768px) {
             .nav-menu {
                 position: fixed;
-                top: 80px;
+                top: 0;
                 left: -100%;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background: var(--dark-bg);
+                width: 100vw;
+                height: 100vh;
+                background: rgba(255,255,255,0.98);
                 flex-direction: column;
                 justify-content: flex-start;
                 align-items: center;
-                padding-top: 2rem;
-                transition: left 0.3s ease;
+                padding-top: 5rem;
+                transition: left 0.4s cubic-bezier(0.77,0.2,0.05,1.0);
                 border-top: 1px solid var(--border-color);
+                z-index: 2000;
             }
 
             .nav-menu.active {
                 left: 0;
+                box-shadow: 0 0 0 100vw rgba(0,0,0,0.2);
             }
 
             .hamburger {
                 display: flex;
+                position: relative;
+            }
+            .mobile-nav-close {
+                display: none !important;
             }
 
             .hero-stats {
@@ -1208,7 +1217,6 @@
                 left: 0.25rem;
             }
         }
-
         @media (max-width: 480px) {
             .nav-container {
                 padding: 0 1rem;
@@ -1293,7 +1301,7 @@
             position: absolute;
             left: 1.2rem;
             top: 1.5rem;
-            font-size: 1.2rem;
+            font-size: 2rem;
             color: var(--primary-blue);
             font-weight: 900;
             background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%);
@@ -1685,6 +1693,7 @@
             <div class="rules-download-cta">
                 <a href="detailed_rules.pdf" download class="btn-gradient-download">
                     <span>Download Detailed Rules</span>
+                    <span>📄</span>
                 </a>
             </div>
         </div>
