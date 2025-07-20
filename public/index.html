@@ -542,6 +542,60 @@
             box-shadow: 0 4px 15px var(--shadow-blue);
         }
 
+        .btn-pdf-download {
+            background: var(--gradient-secondary);
+            color: white;
+            border: 2px solid white;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            padding: 1.2rem 2.5rem;
+        }
+
+        .btn-pdf-download:hover {
+            background: var(--gradient-primary);
+            border-color: var(--light-blue);
+            color: white;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px var(--shadow-glow);
+        }
+
+        .btn-gradient-download {
+            background: linear-gradient(90deg, #1E40AF 0%, #3B82F6 100%);
+            color: #fff !important;
+            font-weight: 700;
+            border: none;
+            border-radius: 32px;
+            padding: 1.1rem 2.5rem;
+            font-size: 1.15rem;
+            box-shadow: 0 6px 24px rgba(37, 99, 235, 0.18), 0 1.5px 6px rgba(59, 130, 246, 0.10);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.25s cubic-bezier(0.4,0,0.2,1);
+            letter-spacing: 0.02em;
+            outline: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7em;
+        }
+        .btn-gradient-download::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -75%;
+            width: 50%; height: 100%;
+            background: linear-gradient(120deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.05) 100%);
+            transform: skewX(-20deg);
+            transition: left 0.5s cubic-bezier(0.4,0,0.2,1);
+        }
+        .btn-gradient-download:hover {
+            transform: scale(1.06) translateY(-2px);
+            box-shadow: 0 12px 32px rgba(37, 99, 235, 0.25), 0 2px 8px rgba(59, 130, 246, 0.13);
+        }
+        .btn-gradient-download:hover::before {
+            left: 120%;
+        }
+
         /* Sections */
         .section {
             padding: 6rem 0;
@@ -676,6 +730,58 @@
             line-height: 1.6;
         }
 
+        .rule-item p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Rules Section - Point Wise */
+        .rules-list {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid var(--border-color);
+            padding: 2.5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.15);
+        }
+
+        .rule-item {
+            margin-bottom: 1.5rem;
+            padding-left: 2.5rem;
+            position: relative;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1.5rem;
+        }
+
+        .rule-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .rule-item::before {
+            content: '✔';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            font-weight: 700;
+        }
+
+        .rule-item h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .rule-item p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
         /* Timeline Section */
         .timeline-container {
             max-width: 800px;
@@ -887,7 +993,7 @@
             position: relative;
             display: inline-block;
             border-radius: 20px;
-            padding: 1.5rem;
+            padding: 0.5rem;
             background: white;
             box-shadow: 0 0 20px var(--shadow-blue);
             animation: glow 2s infinite alternate;
@@ -1157,8 +1263,192 @@
             min-width: 250px;
         }
         .qr-code-container img {
-            max-width: 100%;
-            height: auto;
+            width: 200px;
+            height: 200px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+            border-radius: 8px;
+        }
+        /* --- BEAUTIFIED RULES & REGULATIONS SECTION --- */
+        section#rules .section-header {
+            position: relative;
+        }
+        section#rules .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        section#rules .section-title::after {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+            margin: 0.5rem auto 0 auto;
+        }
+        .rules-list {
+            background: rgba(255,255,255,0.98);
+            border: 1.5px solid var(--primary-blue);
+            box-shadow: 0 8px 32px rgba(37,99,235,0.10);
+            border-radius: 24px;
+            padding: 2.8rem 2.5rem;
+            margin-top: 2rem;
+        }
+        .rule-item {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(37,99,235,0.07);
+            margin-bottom: 2rem;
+            padding: 1.5rem 2rem 1.5rem 3.5rem;
+            border: none;
+            position: relative;
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+        .rule-item:last-child {
+            margin-bottom: 0;
+        }
+        .rule-item:hover {
+            box-shadow: 0 8px 32px rgba(37,99,235,0.13);
+            transform: translateY(-2px) scale(1.02);
+        }
+        .rule-item::before {
+            content: '✔';
+            position: absolute;
+            left: 1.2rem;
+            top: 1.5rem;
+            font-size: 2rem;
+            color: var(--primary-blue);
+            font-weight: 900;
+            background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .rule-item h3 {
+            font-size: 1.18rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+            color: var(--primary-blue);
+        }
+        .rule-item p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .rule-item[style] {
+            background: var(--gradient-primary) !important;
+            color: #fff !important;
+            box-shadow: 0 8px 32px rgba(37,99,235,0.18);
+        }
+        .rule-item[style] a {
+            color: #fff !important;
+        }
+
+        /* --- BEAUTIFIED DOMAINS & PROBLEM STATEMENTS SECTION --- */
+        section#domains .section-header {
+            position: relative;
+        }
+        section#domains .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        section#domains .section-title::after {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+            margin: 0.5rem auto 0 auto;
+        }
+        section#domains .features-grid {
+            gap: 2.5rem;
+        }
+        section#domains .feature-card {
+            background: #fff;
+            border: 2px solid var(--primary-blue);
+            border-radius: 20px;
+            box-shadow: 0 4px 24px rgba(37,99,235,0.10);
+            padding: 2.5rem 2rem;
+            transition: box-shadow 0.3s, border-color 0.3s, transform 0.3s;
+            position: relative;
+        }
+        section#domains .feature-card:hover {
+            border-color: #3B82F6;
+            box-shadow: 0 12px 36px rgba(37,99,235,0.18);
+            transform: translateY(-4px) scale(1.03);
+        }
+        section#domains .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-primary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 20px var(--shadow-blue);
+            color: #fff;
+        }
+        section#domains .feature-card h3 {
+            color: var(--primary-blue);
+            font-size: 1.22rem;
+            font-weight: 700;
+            margin-bottom: 0.7rem;
+        }
+        section#domains .feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        section#domains .feature-card:last-child {
+            background: var(--gradient-primary);
+            color: #fff;
+            border: none;
+            box-shadow: 0 8px 32px rgba(37,99,235,0.18);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            min-height: 100%;
+            height: 100%;
+        }
+        section#domains .feature-card:last-child a {
+            color: #fff !important;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            padding: 2.5rem;
+            text-decoration: none;
+        }
+
+        .rules-cta {
+            background: #fff;
+            border: none;
+            box-shadow: 0 4px 18px rgba(37,99,235,0.10);
+            border-radius: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1.5rem;
+            margin-top: 2.5rem;
+        }
+        .rules-cta::before {
+            display: none !important;
+        }
+        .rules-cta a.btn-gradient-download {
+            display: inline-flex;
+            margin: 0 auto;
+        }
+        .rules-download-cta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2.5rem;
         }
     </style>
 </head>
@@ -1186,6 +1476,8 @@
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#timeline" class="nav-link">Timeline</a></li>
+                <li><a href="#rules" class="nav-link">Rules</a></li>
+                <li><a href="#domains" class="nav-link">Domains</a></li>
                 <li><a href="#prizes" class="nav-link">Prizes</a></li>
                 <li><a href="#register" class="nav-link">Register</a></li>
             </ul>
@@ -1381,6 +1673,91 @@
         </div>
     </section>
 
+    <!-- Rules Section -->
+    <section id="rules" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title fade-in-up">Rules & <span class="gradient-text">Regulations</span></h2>
+                <p class="section-subtitle fade-in-up">To ensure a fair and enjoyable experience for everyone, please adhere to the following rules.</p>
+            </div>
+            <div class="rules-list fade-in-up">
+                <div class="rule-item">
+                    <h3>Team Formation</h3>
+                    <p>Teams can consist of 1 to 4 members. All members must be registered for the hackathon.</p>
+                </div>
+                <div class="rule-item">
+                    <h3>Project Originality</h3>
+                    <p>All code and assets must be created during the hackathon. Use of pre-existing code is prohibited unless explicitly allowed for certain APIs or libraries.</p>
+                </div>
+                <div class="rule-item">
+                    <h3>Judging Criteria</h3>
+                    <p>Projects will be judged based on creativity, technical difficulty, design, and impact. The judges' decisions are final.</p>
+                </div>
+                <div class="rule-item">
+                    <h3>Code of Conduct</h3>
+                    <p>All participants must adhere to the event's code of conduct. Be respectful, inclusive, and collaborative.</p>
+                </div>
+                <div class="rule-item">
+                    <h3>Intellectual Property</h3>
+                    <p>You own the IP of your project. However, by participating, you grant us the right to use your project for promotional purposes.</p>
+                </div>
+                <div class="rule-item">
+                    <h3>Have Fun!</h3>
+                    <p>The most important rule is to have fun, learn, and build something amazing. Enjoy the experience!</p>
+                </div>
+            </div>
+            <div class="rules-download-cta">
+                <a href="detailed_rules.pdf" download class="btn-gradient-download">
+                    <span>Download Detailed Rules</span>
+                    <span>📄</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Domain Section -->
+    <section id="domains" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title fade-in-up">Domains & <span class="gradient-text">Problem Statements</span></h2>
+                <p class="section-subtitle fade-in-up">Choose a domain that excites you and tackle a real-world problem. You are free to define your own problem statement within these domains.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">❤️</div>
+                    <h3>Healthcare</h3>
+                    <p>Develop solutions to improve patient care, streamline hospital management, or promote wellness and mental health.</p>
+                </div>
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">💰</div>
+                    <h3>FinTech</h3>
+                    <p>Innovate in areas like personal finance, financial literacy, secure transactions, or algorithmic trading.</p>
+                </div>
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">🎓</div>
+                    <h3>Education</h3>
+                    <p>Create tools for remote learning, student engagement, personalized education, or skill development.</p>
+                </div>
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">🌱</div>
+                    <h3>Sustainability</h3>
+                    <p>Build projects that address environmental challenges, promote green energy, or support sustainable living.</p>
+                </div>
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Social Good</h3>
+                    <p>Use technology to address social issues, empower communities, or create a more inclusive society.</p>
+                </div>
+                <div class="feature-card fade-in-up" style="padding: 0; background: var(--gradient-primary);">
+                    <a href="problem_statements.pdf" download class="btn-gradient-download" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 100%; text-decoration: none;">
+                        <span style="font-size: 1.2rem; font-weight: 600;">Download PDF</span>
+                        <span style="font-size: 2rem; margin-top: 0.5rem;">📄</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Prizes Section -->
     <section id="prizes" class="section prizes">
         <div class="container">
@@ -1433,14 +1810,14 @@
                         
                         <p style="color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.7;">Last date of registration is <b>15th August 2025</b></p>
                         
-                        <a href="https://forms.gle/YOUR_FORM_ID" target="_blank" class="btn btn-primary">
+                        <a href="https://forms.gle/aPdKW73gCpLD6prB9" target="_blank" class="btn btn-primary">
                             <span>Register via Google Form</span>
                             <span>→</span>
                         </a>
                     </div>
                     <div style="flex-shrink: 0; text-align: center;">
                         <div class="qr-code-container">
-                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://forms.gle/YOUR_FORM_ID" alt="QR Code for Registration" style="display: block; border-radius: 8px;">
+                            <img src="GoogleForm.png" alt="QR Code for Registration" style="display: block; border-radius: 8px;">
                         </div>
                         <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 1rem; font-weight: 600;">Scan Me!</p>
                     </div>
