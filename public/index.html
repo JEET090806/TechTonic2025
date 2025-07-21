@@ -674,6 +674,7 @@
             background: radial-gradient(circle at top right, rgba(37, 99, 235, 0.1), transparent);
             opacity: 0;
             transition: opacity 0.4s ease;
+            pointer-events: none;
         }
 
         .feature-card:hover {
@@ -1385,29 +1386,41 @@
             color: var(--text-secondary);
             line-height: 1.7;
         }
-        section#domains .feature-card:last-child {
-            background: var(--gradient-primary);
-            color: #fff;
-            border: none;
-            box-shadow: 0 8px 32px rgba(37,99,235,0.18);
+        .domain-download-card {
+            background: #fff;
+            border: 2px dashed var(--primary-blue);
+            box-shadow: 0 8px 32px rgba(37,99,235,0.1);
+            text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 0;
-            min-height: 100%;
-            height: 100%;
-        }
-        section#domains .feature-card:last-child a {
-            color: #fff !important;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
             padding: 2.5rem;
-            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .domain-download-card:hover {
+            border-style: solid;
+            border-color: var(--accent-blue);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 12px 40px rgba(37,99,235,0.2);
+        }
+        .download-card-content h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 0.75rem;
+        }
+        .download-card-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        .domain-download-card .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            font-size: 1.1rem;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
         }
 
         .rules-cta {
@@ -1545,7 +1558,7 @@
                 <p class="section-subtitle fade-in-up">Experience the most comprehensive hackathon designed for developers who want to push boundaries and create meaningful impact.</p>
             </div>
             
-            <div class="features-grid">
+           <div class="features-grid">
                 <div class="feature-card fade-in-up">
                     <div class="feature-icon">💻</div>
                     <h3>Industry Focus</h3>
@@ -1732,11 +1745,15 @@
                     <h3>Blockchain & Cybersecurity</h3>
                     <p>Secure transaction systems, authentication, data integrity.</p>
                 </div>
-                <div class="feature-card fade-in-up" style="padding: 0; background: var(--gradient-primary);">
-                    <a href="problem_statements.pdf" download class="btn-gradient-download" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 100%; text-decoration: none;">
-                        <span style="font-size: 1.2rem; font-weight: 600;">Download PDF</span>
-                        <span style="font-size: 2rem; margin-top: 0.5rem;">📄</span>
-                    </a>
+                <div class="feature-card domain-download-card fade-in-up">
+                    <div class="download-card-content">
+                        <h3>Problem Statements</h3>
+                        <p>Download the complete list of problem statements to get started.</p>
+                        <a href="problem_statements.pdf" download class="btn btn-primary">
+                            <span>Download PDF</span>
+                            <span>📄</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
