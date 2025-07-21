@@ -1027,7 +1027,7 @@
 
         .footer-content {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
             gap: 3rem;
             margin-bottom: 2rem;
         }
@@ -1152,6 +1152,12 @@
         }
 
         /* Responsive Design */
+        @media (max-width: 992px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-menu {
                 position: fixed;
@@ -1848,11 +1854,18 @@
                         <li><a href="#register">Register</a></li>
                     </ul>
                 </div>
+
+                <div class="footer-section">
+                    <h3>Faculty Co-ordinator</h3>
+                    <p>Dr. Bhaumik D. Shah</p>
+                    <p>+91-7359739497</p>
+                    <p>bhaumikshah.mca@charusat.ac.in</p>
+                </div>
                 
                 <div class="footer-section">
                     <h3>Student Co-ordinator</h3>
-                    <p>Prince Patel : +91-9510670484</p>
-                    <p>Jeet Pandya : +91-9687545402</p>
+                    <p>Prince Patel: +919510670484</p>
+                    <p>Jeet Pandya: +919687545402</p>
                     <p>📍 CMPICA - Auditorium<br>CHARUSAT</p>
                 </div>
             </div>
