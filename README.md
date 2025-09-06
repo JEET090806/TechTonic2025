@@ -1,1 +1,0 @@
-# TechTonic2025

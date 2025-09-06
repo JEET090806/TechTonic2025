@@ -10,24 +10,42 @@
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+  
+  const getEnvFile = () => {
+    if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+      return ".env.development";
+    } else if (window.location.hostname === "your-production-hostname.com") { // Replace with your production hostname
+      return ".env.production";
+    } else {
+      return ".env";
+    }
+  }
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyBnHUi18ema_n3oZvbxWrEEvdIBpg0V_OU",
-    authDomain: "techtonic991.firebaseapp.com",
-    projectId: "techtonic991",
-    storageBucket: "techtonic991.firebasestorage.app",
-    messagingSenderId: "432589626757",
-    appId: "1:432589626757:web:11eef85cafcaa0ab6b78ec",
-    measurementId: "G-GMM8G2B108"
-  };
+  fetch(getEnvFile())
+    .then(response => response.text())
+    .then(text => {
+      const env = text.split('\n').reduce((acc, line) => {
+        const [key, value] = line.split('=');
+        if (key && value) {
+          acc[key.trim()] = value.trim().replace(/"/g, '');
+        }
+        return acc;
+      }, {});
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+      const firebaseConfig = {
+        apiKey: env.FIREBASE_API_KEY,
+        authDomain: "techtonic991.firebaseapp.com",
+        projectId: "techtonic991",
+        storageBucket: "techtonic991.firebasestorage.app",
+        messagingSenderId: "432589626757",
+        appId: "1:432589626757:web:11eef85cafcaa0ab6b78ec",
+        measurementId: "G-GMM8G2B108"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+    });
 </script>
     <style>
         :root {
